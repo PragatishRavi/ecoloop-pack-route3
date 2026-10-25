@@ -67,7 +67,7 @@ export function operationalMetrics(state) {
   const eligible=observations.reduce((s,x)=>s+(Number(x.eligible)||0),0);
   const reusable=observations.reduce((s,x)=>s+(Number(x.reusable)||0),0);
   const durations=returnDurationsHours(events);
-  const retiredCycle3=containers.filter(c=>c.status==='Retired').map(c=>Number(c.cycles)||0);
+  const retiredCycles=containers.filter(c=>c.status==='Retired').map(c=>Number(c.cycles)||0);
   return {
     fleet: containers.length,
     available: containers.filter(c=>c.status==='Available').length,
