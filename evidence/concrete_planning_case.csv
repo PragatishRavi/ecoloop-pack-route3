@@ -1,0 +1,59 @@
+﻿EcoLoop Pack - Illustrative Concrete Planning Case
+Public input values are separated from management assumptions. This sheet demonstrates a practical Route 3 forecast; it is not observed EcoLoop performance or confirmed willingness to pay.
+
+Input,Value,Unit,Classification,Source / rationale,Boundary
+Reusable fleet size,500,containers,Management assumption,Dense-site pilot planning case,Replace after site design
+Return points,6,bins,Management assumption,Dense-site pilot planning case,Replace after return-point map
+Setup labour,20,hours,Management assumption,Initial configuration/training,Actual staffing plan required
+Contingency,0.1,%,Management assumption,Planning allowance,Not observed
+Eligible orders/month,5000,orders,Management assumption,Planning denominator,G1 must replace
+Reusable uptake,0.25,%,Management assumption,Planning case,G4 must replace
+Return rate,0.9,%,Management assumption,Planning case,G5 must replace
+Inspection pass rate,0.95,%,Management assumption,Planning case,G6 must replace
+Permanent loss rate,0.05,%,Management assumption,Planning case,G5/G6 must replace
+Successful asset life,50,cycles,Management assumption,Planning case,G6 must replace
+Pilot coordinator,60,hours/month,Management assumption,Lean pilot staffing,Site staffing plan required
+Technical/admin support,10,hours/month,Management assumption,Lean pilot staffing,Site staffing plan required
+Employer on-cost allowance,0.15,%,Management assumption,Planning allowance,Employer-specific
+Wash cost,0.1,£/completed,Management assumption,Planning case,G3 quote/observation required
+Handling/logistics cost,0.2,£/completed,Management assumption,Planning case,G7 quote/observation required
+Technology/admin variable,0.03,£/completed,Management assumption,Planning case,Site evidence required
+Fixed monthly overhead,100,£/month,Management assumption,Planning allowance,Site evidence required
+Fixed site-management charge,650,£/month,Management assumption,Illustrative tariff,G8 buyer acceptance required
+Variable circulation charge,1.4,£/completed,Management assumption,Illustrative tariff,G8 buyer acceptance required
+Reusable container cost,6.17,£/container ex VAT,Current public reference,Nisbets BW087,"Retail reference, not quote"
+Return-bin cost,31.49,£/bin ex VAT,Current public reference,Nisbets DX965,"Retail reference, not quote"
+National Living Wage,12.71,£/hour,Official current rate,"Low Pay Commission / GOV.UK, Apr 2026",Wage floor only
+QR labels / launch signage,250,£,Management assumption,Planning allowance,Supplier quote required
+
+
+Derived monthly model,Value,Unit,Formula / basis,Interpretation,Status
+Reusable issues,=B9*B10,issues,eligible × uptake,,Illustrative / derived
+Completed circulations,=B31*B11*B12,circulations,issues × return × inspection pass,,Illustrative / derived
+Lost containers,=B31*B13,containers,issues × permanent loss,,Illustrative / derived
+Labour cost,=(B15+B16)*B26*(1+B17),£/month,(coordinator + admin hours) × wage × (1 + on-cost),,Illustrative / derived
+Wash cost,=B32*B18,£/month,completed × wash,,Illustrative / derived
+Handling/logistics cost,=B32*B19,£/month,completed × handling/logistics,,Illustrative / derived
+Technology/admin variable cost,=B32*B20,£/month,completed × tech/admin,,Illustrative / derived
+Lifecycle replacement,=B32/B14*B24,£/month,completed ÷ life × asset cost,,Illustrative / derived
+Loss replacement,=B33*B24,£/month,lost × asset cost,,Illustrative / derived
+Fixed overhead,=B21,£/month,input,,Illustrative / derived
+Total monthly operating cost,=SUM(B34:B40),£/month,labour + variable + replacement + fixed,,Illustrative / derived
+Monthly revenue,=B22+B32*B23,£/month,fixed charge + completed × variable charge,,Illustrative / derived
+Monthly operating result,=B42-B41,£/month,revenue - cost,,Illustrative / derived
+Required variable charge at £650 fixed fee,=(B41-B22)/B32,£/completed,(cost - fixed charge) ÷ completed,,Illustrative / derived
+
+
+Start-up item,Formula / basis,Cost,Status,Boundary
+Reusable fleet,500 × £6.17,=B5*B24,Derived from public price,Fleet size assumed
+Return points,6 × £31.49,=B6*B25,Derived from public price,Quantity assumed
+QR labels/signage,Allowance,=B27,Management assumption,Quote required
+Setup/training labour,20 h × £12.71,=B7*B26,Official wage × assumed hours,Actual staffing may differ
+Contingency,10% of above,=SUM(C48:C51)*B8,Management assumption,Planning buffer
+Total start-up,,=SUM(C48:C52),Derived,Illustrative planning case
+
+
+Period,Revenue,Operating cost,Operating result,Cumulative after start-up
+3 months,=$B$42*3,=$B$41*3,=B57-C57,=D57-$C$53
+6 months,=$B$42*6,=$B$41*6,=B58-C58,=D58-$C$53
+12 months,=$B$42*12,=$B$41*12,=B59-C59,=D59-$C$53

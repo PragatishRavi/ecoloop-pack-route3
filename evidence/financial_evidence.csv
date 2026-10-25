@@ -1,0 +1,18 @@
+﻿Financial Evidence & Input Classification
+Blue values are current hardcoded evidence; yellow rows require site evidence.
+
+Variable,Value,Unit,Classification,Source / evidence,Boundary,Use
+Reusable 750ml public reference,6.165833333333333,£/container ex VAT,Current public reference,Nisbets BW087,"Retail reference, not quote",Parity/lower bound
+Disposable 750ml base+lid,0.17666666666666667,£/set ex VAT,Current public reference,Supply Express,One supplier example,Parity comparator
+Purchase-price-only parity,=B5/B6,successful uses,Derived,Formula,Excludes all operating costs,Commercial lower bound
+Sheffield standing charge,20,£/month,Published benchmark,Hoseini et al. 2024,Not EcoLoop tariff,Benchmark
+Sheffield reusable service,0.3,£/use,Published benchmark,Hoseini et al. 2024,Not EcoLoop tariff,Benchmark
+Sheffield wash,0.011,£/use,Published benchmark,Hoseini et al. 2024,Case-specific,Benchmark
+Sheffield single-use box,0.25,£/box,Published benchmark,Hoseini et al. 2024,Case-specific,Benchmark
+Sheffield surcharge,0.3,£/single use,Published benchmark,Hoseini et al. 2024,Case-specific,Benchmark
+EcoLoop site volume,,orders/month,G1 required,Future baseline,Do not assume,Conditional forecast
+EcoLoop wash/logistics/fixed costs,,£,G3/G7 required,Future quote/observation,Do not assume,Conditional forecast
+EcoLoop buyer funding,,£,G8 required,Future buyer evidence,Do not assume willingness to pay,Conditional forecast
+Return-bin public reference,31.49,£/60L bin ex VAT,Current public reference,Nisbets DX965,"Retail reference, not quote",Start-up planning
+National Living Wage 2026,12.71,£/hour,Official current rate,Low Pay Commission / GOV.UK,Wage floor; actual salary/on-cost may differ,Labour planning
+Illustrative start-up estimate,4155.954,£,Derived planning case,500 containers + 6 bins + £250 labels/signage + 20h setup labour + 10% contingency,"Fleet size, labels/signage, setup hours and contingency are assumptions",Route 3 financial planning

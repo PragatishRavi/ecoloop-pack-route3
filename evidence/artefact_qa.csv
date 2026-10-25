@@ -1,0 +1,17 @@
+Artefact QA and Test Evidence — Final Public Repository Build
+"10/10 automated core tests are implemented in tests/core.test.mjs. JavaScript syntax checks are included in GitHub Actions. Camera, persistence and formal device/accessibility checks remain manual acceptance items."
+
+ID,Test,Method,Expected,Status,Evidence,Boundary / retest
+T01,Lifecycle state machine,node --test,Valid happy path and unsafe skips handled,PASS,Automated core test,Physical wash/inspection outside software
+T02,Published Sheffield threshold,node --test,Published inputs reconstruct approximately 77.6%,PASS,Automated core test,Published case only
+T03,Economic sensitivity,node --test,Valid selected-point result is finite,PASS,Automated core test,Not an EcoLoop forecast
+T04,Procurement parity,node --test,Current public references reconstruct approximately 34.9 uses,PASS,Automated core test,Public prices can change
+T05,KPI separation + return time,node --test,Uptake and return remain distinct; return time calculated,PASS,Automated core test,Requires real pilot events for EcoLoop result
+T06,EcoLoop site economics,node --test,Costs and revenue are kept separate,PASS,Automated core test,Conditional inputs
+T07,Model-derived thresholds,node --test,Commercial threshold outputs are numeric where solvable,PASS,Automated core test,Site-specific inputs required
+T08,Manual evidence gate reference,node --test,Manual gate is not ready without evidence reference,PASS,Automated core test,Reference quality still requires human review
+T09,Invalid import rejection,node --test,Duplicate IDs / unknown states rejected,PASS,Automated core test,Not a production security audit
+T10,Valid import acceptance,node --test,Valid prototype state accepted,PASS,Automated core test,Schema remains prototype-level
+T11,JavaScript syntax,node --check,app.mjs and core.mjs parse,CI CHECK,GitHub Actions,Syntax is not browser compatibility
+T12,QR camera path,Manual browser test,Supported browser can scan; manual ID fallback available,MANUAL,docs/MANUAL_TESTING.md,Permission/browser support varies
+T13,Responsive/accessibility checks,Manual browser/device test,Keyboard/focus/narrow layout usable,MANUAL,docs/MANUAL_TESTING.md,Formal WCAG audit not claimed

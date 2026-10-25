@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EcoLoop Pack | Pilot Operations & Feasibility System</title>
+  <meta name="description" content="7001SOM Route 3 artefact for operating and evaluating a controlled reusable takeaway-container pilot using evidence readiness and performance tests.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div id="liveStatus" class="screen-reader-status" aria-live="polite"></div>
+<header class="topbar">
+  <div class="academic-brand">
+    <div class="cu-wordmark" aria-label="Coventry University">Coventry University</div>
+    <div><strong>7001SOM Postgraduate Project</strong><span>Route 3 - Business Plan + Artefact | Pragathish Ravi</span></div>
+  </div>
+  <nav aria-label="Primary navigation"><a href="#dashboard">Dashboard</a><a href="#pilot">Pilot</a><a href="#gates">Evidence gates</a><a href="#economics">Economics</a><a href="#sustainability">Sustainability</a><a href="#alignment">Research alignment</a><a href="#sources">Sources</a></nav>
+</header>
+
+<main id="main">
+<section class="hero" id="dashboard">
+  <div class="hero-copy">
+    <p class="eyebrow">ECOLOOP PACK - PILOT OPERATIONS & FEASIBILITY SYSTEM</p>
+    <h1>Test whether a reusable takeaway-container service works <em>before</em> claiming it works.</h1>
+    <p class="lead">The prototype operationalises the evidence requirements identified in the business plan. Uptake, recovery, return time, completed reuse, condition, washing, loss, logistics and funding are treated as separate variables rather than compressed into a single success rate.</p>
+    <div class="hero-actions"><a class="btn primary" href="#pilot">Run a container cycle</a><a class="btn" href="#gates">Review evidence gaps</a></div>
+    <div class="boundary"><strong>Research boundary:</strong> external figures are published benchmarks. Local records entered in this browser are prototype/pilot evidence. The artefact does not claim that EcoLoop Pack has already achieved a return rate, profitability result or carbon saving.</div>
+  </div>
+  <aside class="hero-card">
+    <h2>Current external context</h2>
+    <dl>
+      <div><dt>UK food & beverage serving turnover, 2025</dt><dd>£108.25bn</dd><small>ONS JQ37; rounded from the current annual series used in the report</small></div>
+      <div><dt>UK takeaway/mobile-food enterprises, 2023</dt><dd>43,620</dd><small>ONS/Nomis evidence reported through GOV.UK</small></div>
+      <div><dt>UK HE reporting providers, 2024/25</dt><dd>304</dd><small>HESA screening universe; not validated demand</small></div>
+      <div><dt>Observed return range in selected programmes</dt><dd>27-98.6%</dd><small>heterogeneous cases - not pooled</small></div>
+    </dl>
+  </aside>
+</section>
+
+<section class="section soft">
+  <div class="section-heading"><p class="eyebrow">ANALYTICAL EVIDENCE</p><h2>Observed reuse programmes do not support one "expected" return rate</h2><p>Cross-case evidence is displayed side-by-side to preserve variation. The business decision is therefore based on separate adoption, recovery and completed-cycle evidence rather than an assumed EcoLoop success percentage.</p></div>
+  <div class="two-panel">
+    <div class="panel"><h3>Reported return rate</h3><div id="returnChart" class="bars"></div></div>
+    <div class="panel analysis-note"><h3>Design consequences</h3><p><strong>Adoption and return are separate.</strong> Glasgow reported high return relative to only 3% average uptake, so both denominators are recorded separately.</p><p><strong>Dense geography is retained for the first pilot.</strong> Network-density evidence supports acquisition benefits, while dispersed collection can weaken recovery and logistics.</p><p><strong>No published return rate becomes an EcoLoop target.</strong> Sheffield's 98.6% is retained as a case-specific benchmark rather than a forecast.</p></div>
+  </div>
+  <div class="table-wrap"><table><thead><tr><th>Programme</th><th>Setting</th><th>Return</th><th>Uptake</th><th>Evidence type</th><th>Analytical implication</th></tr></thead><tbody id="benchmarkBody"></tbody></table></div>
+</section>
+
+<section class="section" id="pilot">
+  <div class="section-heading"><p class="eyebrow">FUNCTIONAL PILOT PROTOTYPE</p><h2>Operate the physical loop as a controlled state machine</h2><p>A completed reuse cycle requires issue, return, washing, inspection and reissue. Lost and retired assets are treated as exception states, and issue/return timestamps support outstanding-stock and return-time analysis.</p></div>
+  <div class="privacy-note"><strong>Data minimisation:</strong> do not enter customer names, email addresses, payment details or other personal data in transaction references or working notes.</div>
+  <div class="pilot-grid">
+    <aside class="control-panel">
+      <h3>Outlet and container</h3>
+      <label>New outlet / return point<input id="outletName" autocomplete="off" placeholder="e.g. Engineering Cafe"></label>
+      <button id="addOutlet" class="btn small" type="button">Add outlet</button>
+      <label>Container<select id="containerSelect"></select></label>
+      <div class="scan-row"><input id="manualId" autocomplete="off" aria-label="Container ID" placeholder="EC-0001"><button id="manualLoad" type="button">Load ID</button></div>
+      <button id="scanBtn" class="btn small" type="button">Scan QR with camera</button>
+      <video id="camera" playsinline hidden aria-label="QR camera preview"></video>
+      <p id="scanStatus" class="micro">Camera scanning uses the browser BarcodeDetector API where supported; manual ID remains available.</p>
+      <div class="qr-box"><img id="qrImage" alt="Selected container QR"><div><strong id="containerId">-</strong><span id="containerStatus">-</span></div></div>
+      <label>Outlet / return point<select id="outletSelect"></select></label>
+      <label>Transaction / evidence reference<input id="transactionRef" autocomplete="off" placeholder="non-personal reference only"></label>
+      <div class="actions">
+        <button data-action="issue" type="button">Issue</button>
+        <button data-action="return" type="button">Return</button>
+        <button data-action="wash" type="button">Wash</button>
+        <button data-action="inspect" type="button">Inspect</button>
+        <button data-action="reissue" type="button">Make available</button>
+        <button data-action="lost" class="danger" type="button">Mark lost</button>
+        <button data-action="retire" class="danger" type="button">Retire</button>
+      </div>
+      <p id="operationMessage" class="micro">Select a container and record an evidence event.</p>
+    </aside>
+
+    <div class="workspace">
+      <div class="kpis">
+        <article><span>Fleet</span><strong id="kFleet">0</strong></article>
+        <article><span>Available</span><strong id="kAvailable">0</strong></article>
+        <article><span>Issued / outstanding</span><strong id="kIssued">0</strong></article>
+        <article><span>Dirty returned</span><strong id="kReturned">0</strong></article>
+        <article><span>Washed</span><strong id="kWashed">0</strong></article>
+        <article><span>Inspected</span><strong id="kInspected">0</strong></article>
+        <article><span>Lost</span><strong id="kLost">0</strong></article>
+        <article><span>Completed cycles</span><strong id="kCycles">0</strong></article>
+        <article><span>Recorded return</span><strong id="kReturnRate">-</strong></article>
+        <article><span>Median return time</span><strong id="kReturnTime">-</strong></article>
+        <article><span>Recorded uptake</span><strong id="kUptake">-</strong></article>
+      </div>
+      <div class="tabs" role="tablist"><button data-tab="inventory" class="active" type="button">Inventory</button><button data-tab="events" type="button">Event log</button><button data-tab="observations" type="button">Daily uptake</button><button data-tab="outlets" type="button">Outlets</button></div>
+      <div id="tab-inventory" class="tab-panel active"><div class="table-wrap"><table><thead><tr><th>ID</th><th>Status</th><th>Completed cycles</th><th>Last point</th><th>Updated</th></tr></thead><tbody id="inventoryBody"></tbody></table></div></div>
+      <div id="tab-events" class="tab-panel"><div class="table-wrap"><table><thead><tr><th>Time</th><th>Container</th><th>Event</th><th>Point</th><th>Reference</th></tr></thead><tbody id="eventsBody"></tbody></table></div></div>
+      <div id="tab-observations" class="tab-panel">
+        <div class="observation-form"><label>Date<input id="obsDate" type="date"></label><label>Outlet<select id="obsOutlet"></select></label><label>Eligible takeaway orders<input id="obsEligible" type="number" min="0"></label><label>Reusable issues<input id="obsReusable" type="number" min="0"></label><label>Working note<input id="obsNote" autocomplete="off" placeholder="non-personal operational note"></label><button id="addObservation" type="button">Record day</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Date</th><th>Outlet</th><th>Eligible</th><th>Reusable</th><th>Uptake</th><th>Note</th></tr></thead><tbody id="observationsBody"></tbody></table></div>
+      </div>
+      <div id="tab-outlets" class="tab-panel"><div id="outletCards" class="cards"></div></div>
+      <div class="export-row"><button id="exportEvents" type="button">Export event CSV</button><button id="exportObservations" type="button">Export uptake CSV</button><button id="backup" type="button">Export evidence JSON</button><label class="file-label">Import validated JSON<input id="importState" type="file" accept="application/json"></label><button id="reset" class="ghost" type="button">Reset local data</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="section soft" id="gates">
+  <div class="section-heading"><p class="eyebrow">EVIDENCE GATES</p><h2>Evidence readiness and business performance are separate decisions</h2><p>A gate can contain valid evidence and still fail commercially. Pilot-event gates update from recorded data; quotation/contract gates require an explicit evidence reference.</p></div>
+  <div class="gate-summary"><div><span>Evidence-ready gates</span><strong id="gateReady">0 / 8</strong></div><div><span>Performance passes</span><strong id="gatePassed">0 / 8</strong></div><div><span>Current decision state</span><strong id="gateDecision">Evidence incomplete</strong></div></div>
+  <div id="gateGrid" class="gate-grid"></div>
+  <div class="decision-boundary" id="gateMessage"></div>
+</section>
+
+<section class="section dark" id="economics">
+  <div class="section-heading"><p class="eyebrow">FINANCIAL ANALYSIS</p><h2>Separate published benchmark economics from the EcoLoop commercial model</h2><p>The Sheffield reconstruction remains a benchmark. EcoLoop uses its own cost-and-revenue architecture: fixed operating cost and variable service costs are separated from the fixed site-management charge and variable completed-circulation charge.</p></div>
+  <div class="calc-grid">
+    <form id="sheffieldForm" class="calc-card">
+      <h3>Published Sheffield benchmark</h3>
+      <label>Monthly eligible takeaway transactions<input id="econMeals" type="number" value="1000" min="1"></label>
+      <label>Reuse share tested (%)<input id="econReuse" type="number" value="70" min="0" max="100" step="0.1"></label>
+      <div class="mini-grid"><label>Standing fee (£)<input id="econStanding" type="number" value="20" step="0.001"></label><label>Service / reusable (£)<input id="econService" type="number" value="0.30" step="0.001"></label><label>Wash / reusable (£)<input id="econWash" type="number" value="0.011" step="0.001"></label><label>Single-use box (£)<input id="econSingle" type="number" value="0.25" step="0.001"></label><label>Single-use surcharge (£)<input id="econSurcharge" type="number" value="0.30" step="0.001"></label></div>
+      <p class="micro">Published inputs from Hoseini et al. (2024). They are not EcoLoop prices.</p>
+    </form>
+    <div class="calc-results"><article><span>Published no-loss reuse-share threshold</span><strong id="econThreshold">-</strong></article><article><span>Incremental result at selected share</span><strong id="econResult">-</strong></article><article><span>Reusable variable premium</span><strong id="econPremium">-</strong></article><p id="econExplanation"></p></div>
+  </div>
+
+  <div class="procurement-card">
+    <h3>Current like-capacity purchase evidence</h3>
+    <p>Nisbets lists a 750ml reusable polypropylene reference at approximately <strong>£6.17/unit ex VAT</strong>. The retained Supply Express base-and-lid reference is approximately <strong>£0.1767 per disposable set</strong>.</p>
+    <div class="big-result"><span>Purchase-price-only parity lower bound</span><strong id="parityResult">-</strong><small>successful uses before washing, loss, reverse logistics, labour and finance</small></div>
+  </div>
+
+  <div class="site-model">
+    <div><h3>EcoLoop conditional site model</h3><p>No default EcoLoop viability result is shown. Enter site evidence or clearly identified management-planning assumptions. Revenue variables match the business plan: a fixed site-management charge plus a variable charge per completed circulation.</p></div>
+    <form id="siteForm" class="mini-grid site-fields">
+      <label>Eligible orders / month<input id="siteEligible" type="number" min="0" placeholder="observed"></label>
+      <label>Reusable uptake (%)<input id="siteUptake" type="number" min="0" max="100" step="0.1" placeholder="observed"></label>
+      <label>Return rate (%)<input id="siteReturn" type="number" min="0" max="100" step="0.1" placeholder="observed"></label>
+      <label>Inspection pass (%)<input id="siteInspection" type="number" min="0" max="100" step="0.1" placeholder="observed"></label>
+      <label>Reusable asset cost (£/container)<input id="siteAsset" type="number" min="0" step="0.01" placeholder="supplier quote"></label>
+      <label>Expected usable cycles<input id="siteCycles" type="number" min="1" step="1" placeholder="evidence/assumption"></label>
+      <label>Wash cost (£/completed circulation)<input id="siteWash" type="number" min="0" step="0.001" placeholder="measured/quote"></label>
+      <label>Handling cost (£/completed circulation)<input id="siteHandling" type="number" min="0" step="0.001" placeholder="measured/quote"></label>
+      <label>Reverse-logistics cost (£/completed circulation)<input id="siteLogistics" type="number" min="0" step="0.001" placeholder="route/quote"></label>
+      <label>Fixed operating cost (£/month)<input id="siteFixedCost" type="number" min="0" step="0.01" placeholder="verified/planning"></label>
+      <label>Fixed site-management charge (£/month)<input id="siteFixedRevenue" type="number" min="0" step="0.01" placeholder="commercial evidence"></label>
+      <label>Variable completed-circulation charge (£)<input id="siteVariableRevenue" type="number" min="0" step="0.001" placeholder="commercial evidence"></label>
+    </form>
+    <div class="site-results">
+      <article><span>Completed circulations / month</span><strong id="siteCompleted">-</strong></article>
+      <article><span>Total monthly cost</span><strong id="siteCost">-</strong></article>
+      <article><span>Total monthly revenue</span><strong id="siteRevenue">-</strong></article>
+      <article><span>Monthly contribution</span><strong id="siteContribution">-</strong></article>
+    </div>
+    <div class="threshold-grid">
+      <article><span>Model-derived minimum uptake</span><strong id="reqUptake">-</strong></article>
+      <article><span>Model-derived minimum return</span><strong id="reqReturn">-</strong></article>
+      <article><span>Model-derived minimum inspection pass</span><strong id="reqInspection">-</strong></article>
+    </div>
+    <div id="siteResult" class="site-result">No EcoLoop result is shown until all required site-model fields are entered.</div>
+  </div>
+</section>
+
+<section class="section" id="sustainability">
+  <div class="section-heading"><p class="eyebrow">SUSTAINABILITY BENCHMARKING</p><h2>Compare verified cycles with named published break-even evidence</h2><p>This module is not an EcoLoop LCA. It tests whether verified completed uses reach study-specific benchmark thresholds and preserves the literature's system-boundary caveat.</p></div>
+  <div class="sustain-grid"><label>Published case<select id="envCase"></select></label><label>Verified completed uses<input id="observedUses" type="number" min="0" placeholder="enter observed cycles"></label><div class="env-kpi"><span>GWP break-even</span><strong id="gwpBep">-</strong></div><div class="env-kpi"><span>Water break-even</span><strong id="waterBep">-</strong></div></div>
+  <p id="envMessage" class="decision-boundary"></p>
+</section>
+
+<section class="section soft" id="alignment">
+  <div class="section-heading"><p class="eyebrow">RESEARCH-TO-ARTEFACT ALIGNMENT</p><h2>The artefact implements the business-plan evidence logic</h2><p>Each objective is linked to a measurable control or analytical feature so the artefact remains a supporting decision tool rather than an isolated website.</p></div>
+  <div id="objectiveGrid" class="objective-grid"></div>
+  <h3>Validation trail</h3>
+  <div id="traceGrid" class="trace-grid"></div>
+</section>
+
+<section class="section" id="sources">
+  <div class="section-heading"><p class="eyebrow">PROVENANCE</p><h2>Source register and claim boundaries</h2><p>Peer-reviewed, official, institutional and commercial evidence are labelled separately. Provider/product pages are retained only for current features or dated public-price references.</p></div>
+  <div class="table-wrap"><table><thead><tr><th>Source</th><th>Type</th><th>Used for</th><th>Boundary</th><th>Link</th></tr></thead><tbody id="sourceBody"></tbody></table></div>
+</section>
+</main>
+<footer><div><strong>EcoLoop Pack</strong><span>Pragathish Ravi - 7001SOM Route 3 artefact</span></div><div>Prototype evidence system. No personal data or payment processing.</div></footer>
+<script type="module" src="app.mjs"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿Reference & Claim Validation Register
+"Link validity, metadata, claim support and APA are separate checks."
+
+Reference,Type,URL/DOI,Link,Metadata,Claim,APA,Boundary,Final action
+ONS JQ37 (2026),Official statistics,https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry/timeseries/jq37/ios1,Yes,Yes,Yes,Yes,Sector context,"Use £108,249.7m exact / £108.25bn rounded; release 11 Sep 2026"
+Home Office (2025),Official policy evidence,https://www.gov.uk/government/consultations/alcohol-in-licensed-pavement-areas/impact-assessment-alcohol-in-licensed-pavement-areas-accessible,Yes,Yes,Yes,Yes,"43,620 wider population, not SAM",Corrected author/year
+HESA (2026),Official statistics,https://www.hesa.ac.uk/news/27-01-2026/sb273-higher-education-student-statistics,Yes,Yes,Yes,Yes,HE context != demand,Full organisation first mention
+TUCO procurement,Sector body,https://www.tuco.ac.uk/procurement/services-expertise,Yes,Yes,Yes,Yes,Procurement context,Retain
+TUCO DIPCHEM25,Framework,https://www.tuco.ac.uk/procurement/frameworks/disposables-and-kitchen-chemicals-dipchem,Yes,Yes,Yes,Yes,Not EcoLoop eligibility,Retain exact Lot 2 claim
+Hitt et al. 2023,Peer-reviewed,https://doi.org/10.1016/j.resconrec.2022.106862,Yes,Yes,Yes,Yes,US model,Study-specific
+Hoseini et al. 2024,Peer-reviewed UK living lab,https://doi.org/10.1016/j.resconrec.2024.107815,Yes,Yes,Yes,Yes,Single setting,Retain boundaries
+Greenwood et al. 2021,Peer-reviewed,https://doi.org/10.1016/j.spc.2021.03.022,Yes,Yes,Yes,Yes,Survey/LCA context,No EcoLoop uptake inference
+Collis et al. 2023,Peer-reviewed,https://doi.org/10.3390/su15118857,Yes,Yes,Yes,Yes,Experimental perception,Retain
+Ellsworth-Krebs et al. 2022,Peer-reviewed,https://doi.org/10.1016/j.spc.2021.10.007,Yes,Yes,Yes,Yes,Tracking infrastructure,Retain
+Bocken et al. 2022,Peer-reviewed,https://doi.org/10.1016/j.spc.2022.01.012,Yes,Yes,Yes,Yes,Circular BM,Retain
+Tenhunen-Lunkka et al. 2024,Peer-reviewed,https://doi.org/10.1016/j.spc.2024.05.006,Yes,Yes,Yes,Yes,Pizza case,Retain
+Ratay et al. 2024,Peer-reviewed field data,https://doi.org/10.1111/jiec.13478,Yes,Yes,Yes,Yes,German/Vytal,Retain density boundary
+FSA 2023,Official research,https://doi.org/10.46756/sci.fsa.taf512,Yes,Yes,Yes,Yes,Not EcoLoop cost,Organisation author
+Nisbets BW087,Product page,https://www.nisbets.co.uk/fsg-returnables-standard-meal-container-clear-750ml/bw087,Yes,Yes,Yes,Yes,"Retail, not quote",Record access date
+Supply Express,Product pages,https://supplyexpress.co.uk/products/750ml-takeaway-rectangular-kraft-food-container-bases-pack-of-300.html,Yes,Yes,Yes,Yes,One supplier example,Base/lid referenced separately
+UCL Healthy & Sustainable Food Policy,Institutional policy,https://www.ucl.ac.uk/about/sustainability/strategy-and-governance/ucl-healthy-and-sustainable-food-policy,Yes,Yes,Yes,Yes,One institution; not all HE buyers,Retain as buyer/reporting evidence
+Vytal FAQ,Provider evidence,https://www.vytal.org/faq,Yes,Yes,Yes,Yes,Provider model; not EcoLoop tariff,Retain as competitor benchmark
+Hart (1995),Peer-reviewed conceptual,https://doi.org/10.5465/amr.1995.9512280033,Yes,Yes,Yes,Yes,Competitive-advantage theory; not EcoLoop evidence,Added to Section 2.2
+Eccles et al. (2014),Peer-reviewed organisational study,https://doi.org/10.1287/mnsc.2014.1984,Yes,Yes,Yes,Yes,US listed-company context,Added to Section 2.2
+Low Pay Commission (2026),Official wage evidence,https://www.gov.uk/government/news/national-living-wage-increases-to-1271-per-hour,Yes,Yes,Yes,Yes,Wage floor only; EcoLoop staffing hours remain assumptions,Added to Section 5.3
+Nisbets DX965,Product page,https://www.nisbets.co.uk/jantex-slim-bin-grey-60ltr/dx965,Yes,Yes,Yes,Yes,"Retail public reference, not project quotation",Added to start-up estimate

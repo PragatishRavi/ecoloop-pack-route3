@@ -1,0 +1,10 @@
+[
+  {"id":"G1","name":"Site baseline","question":"Is eligible takeaway volume evidenced for the selected site?","required":"Till / transaction baseline","mode":"manual","readiness":"Not evidenced","performance":"Not assessed"},
+  {"id":"G2","name":"Container specification and price","question":"Is the selected food-contact container specification and contracted price evidenced?","required":"Supplier quotation + specification","mode":"manual","readiness":"Public benchmark","performance":"Not assessed"},
+  {"id":"G3","name":"Wash process, capacity and cost","question":"Is the wash process and operating cost evidenced for the selected site?","required":"Measured process or partner quotation","mode":"manual","readiness":"Not evidenced","performance":"Not assessed"},
+  {"id":"G4","name":"Adoption","question":"Is reusable uptake observed against eligible takeaway orders?","required":"Eligible orders + reusable issues","mode":"auto-uptake","readiness":"Not evidenced","performance":"Not assessed"},
+  {"id":"G5","name":"Return and return time","question":"Are recovery and return-time outcomes observed?","required":"Issue and return timestamps","mode":"auto-return","readiness":"Not evidenced","performance":"Not assessed"},
+  {"id":"G6","name":"Durability / condition / retirement","question":"Are completed cycles and retirement/condition outcomes observed?","required":"Cycle, inspection, lost/retired records","mode":"auto-durability","readiness":"Not evidenced","performance":"Not assessed"},
+  {"id":"G7","name":"Reverse logistics","question":"Are route distance, frequency and cost evidenced?","required":"Route logs / partner quotation / invoices","mode":"manual","readiness":"Not evidenced","performance":"Not assessed"},
+  {"id":"G8","name":"Willingness to fund","question":"Is the buyer's funding mechanism and price acceptance evidenced?","required":"Approved pilot/commercial evidence","mode":"manual","readiness":"Not evidenced","performance":"Not assessed"}
+]

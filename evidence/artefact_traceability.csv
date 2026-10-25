@@ -1,0 +1,12 @@
+﻿Research -> Decision -> Artefact Traceability
+Every major feature exists because a research finding changed a business decision.
+
+Research finding,Business decision,Artefact feature,Metric/evidence,DFVS,Report,Boundary
+Return can diverge from uptake,Do not use return as demand proxy,Eligible-order observation + issue/return events,Uptake % / return %,D,"2,4,7",No expected rate hard-coded
+Return scan != reissue readiness,Control wash and condition,Returned -> Washed -> Inspected -> Available,Completed cycles / inspection,F/S,"2,5",Physical process future pilot
+Loss/late return matters,Track outstanding assets,Lost state + overdue + return time,Outstanding/overdue/loss/median time,F/V,"5,6,7",No real loss rate until pilot
+LCA break-even varies,No generic carbon result,Named threshold comparison,Verified cycles vs named study,S,"2,7",Not an EcoLoop LCA
+Asset price needs ~34.9 uses before operating cost,Durability is commercially material,Parity + durability gate,Cycles/retirement,V,"4,5,7",Lower bound only
+Local costs/funding unknown,No fabricated tariff,Separated cost/revenue model,Required fixed/variable charge,V,"5,7",Conditional until evidence
+Evidence exists != good performance,Separate maturity from pass/fail,Readiness + performance status,G1-G8 + thresholds,D/F/V/S,"6,7",Scale not automatic
+Institutional procurement is competitive,Use compliant route / consider partnership,Buyer/procurement evidence + sources,Retained procurement evidence,D/V,"1,5",No TUCO eligibility claim

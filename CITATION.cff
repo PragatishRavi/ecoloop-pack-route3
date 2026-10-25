@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you reference this academic project, please cite it using the metadata below."
+title: "EcoLoop Pack: Pilot Operations & Feasibility System"
+type: software
+authors:
+  - family-names: "Ravi"
+    given-names: "Pragathish"
+year: 2026
+version: "1.0-submission"
